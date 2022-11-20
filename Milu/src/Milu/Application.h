@@ -1,5 +1,6 @@
 #pragma once
 #include "Core.h"
+
 namespace Milu
 {
 	class MILU_API Application
