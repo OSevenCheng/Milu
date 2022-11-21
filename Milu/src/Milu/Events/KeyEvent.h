@@ -2,8 +2,6 @@
 
 #include "Event.h"
 
-#include <sstream>
-
 namespace Milu
 {
 	class MILU_API KeyEvent : public Event

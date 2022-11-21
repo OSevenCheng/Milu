@@ -5,7 +5,7 @@
       <UniqueIdentifier>{BC15897C-A84C-8A0D-5139-70103D4F060F}</UniqueIdentifier>
     </Filter>
     <Filter Include="Milu\Events">
-      <UniqueIdentifier>{ffd57605-ebd2-4864-aa67-eb9ffd8cb544}</UniqueIdentifier>
+      <UniqueIdentifier>{2076AD9A-8C2B-2690-1520-206781D41C94}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -17,9 +17,6 @@
       <Filter>Milu</Filter>
     </ClInclude>
     <ClInclude Include="src\Milu\EntryPoint.h">
-      <Filter>Milu</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Milu\Log.h">
       <Filter>Milu</Filter>
     </ClInclude>
     <ClInclude Include="src\Milu\Events\ApplicationEvent.h">
@@ -34,6 +31,10 @@
     <ClInclude Include="src\Milu\Events\MouseEvent.h">
       <Filter>Milu\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Milu\Log.h">
+      <Filter>Milu</Filter>
+    </ClInclude>
+    <ClInclude Include="src\mlpch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Milu\Application.cpp">
@@ -42,5 +43,6 @@
     <ClCompile Include="src\Milu\Log.cpp">
       <Filter>Milu</Filter>
     </ClCompile>
+    <ClCompile Include="src\mlpch.cpp" />
   </ItemGroup>
 </Project>

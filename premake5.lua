@@ -18,6 +18,9 @@ project "Milu"
     targetdir("bin/" .. outputdir .. "/%{prj.name}")
     objdir("bin-int/" .. outputdir .. "/%{prj.name}")
 
+    pchheader "mlpch.h"
+    pchsource "Milu/src/mlpch.cpp"
+
     files
     {
         "%{prj.name}/src/**.h",
