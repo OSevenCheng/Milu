@@ -65,7 +65,7 @@ namespace Milu
 		{
 			if (m_Event.GetEventType() == T::GetStaticType())
 			{
-				m_Event.m_bHandle = func(*(T*)&m_Event);
+				m_Event.m_bHandled = func(*(T*)&m_Event);
 				return true;
 			}
 			return false;
