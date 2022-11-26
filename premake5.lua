@@ -13,8 +13,10 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 -- Include directories relative to root folder (solution directory)
 IncludeDir = {}
 IncludeDir["GLFW"] = "Milu/vendor/GLFW/include"
+IncludeDir["Glad"] = "Milu/vendor/Glad/include"
 
 include "Milu/vendor/GLFW"
+include "Milu/vendor/Glad"
 
 project "Milu"
     location "Milu"
@@ -37,12 +39,14 @@ project "Milu"
     {
 	    "%{prj.name}/src",
         "%{prj.name}/vendor/spdlog/include",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}"
     }
 	
 	links
 	{
 	    "GLFW",
+		"Glad",
 		"opengl32.lib"
 	}
 
@@ -54,7 +58,8 @@ project "Milu"
         defines
         {
             "ML_PLATFORM_WINDOWS",
-            "ML_BUILD_DLL"
+            "ML_BUILD_DLL",
+			"GLFW_INCLUDE_NONE"
         }
 
         postbuildcommands

@@ -5,6 +5,8 @@
 #include "Milu/Events/MouseEvent.h"
 #include "Milu/Events/KeyEvent.h"
 
+#include <glad/glad.h>
+
 namespace Milu
 {
     static bool s_bGLFWInitialized = false;
@@ -44,6 +46,8 @@ namespace Milu
 
         m_pWindow = glfwCreateWindow((int)props.iWidth, (int)props.iHeight, m_Data.strTitle.c_str(), nullptr, nullptr);
         glfwMakeContextCurrent(m_pWindow);
+        int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+        ML_CORE_ASSERT(status, "failed to initialize Glad!");
         glfwSetWindowUserPointer(m_pWindow, &m_Data);
         glfwSetWindowSizeCallback(m_pWindow, [](GLFWwindow* window, int width, int height)
         {
