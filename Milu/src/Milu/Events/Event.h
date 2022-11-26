@@ -45,6 +45,7 @@ namespace Milu
 		{
 			return GetCategoryFlags() & category;
 		}
+		inline bool HasHandled()const { return m_bHandled; }
 	protected:
 		bool m_bHandled = false;
 	};

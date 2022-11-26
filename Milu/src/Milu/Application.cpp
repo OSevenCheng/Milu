@@ -16,11 +16,25 @@ namespace Milu
 	}
 	Application::~Application() {}
 
+	void Application::PushLayer(Layer* pLayer)
+	{
+		m_LayerStack.PushLayer(pLayer);
+	}
+	void Application::PushOverlay(Layer* pLayer)
+	{
+		m_LayerStack.PushOverlay(pLayer);
+	}
 	void Application::OnEvent(Event& e)
 	{
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClose));
 		ML_CORE_TRACE("{0}", e);
+		for (auto it = m_LayerStack.end(); it != m_LayerStack.begin();)//from top to bottom when handling events
+		{
+			(*--it)->OnEvent(e);
+			if (e.HasHandled())
+				break;
+		}
 	}
 	
 	void Application::Run() 
@@ -29,7 +43,10 @@ namespace Milu
 		//ML_TRACE(e);
 		while (m_bRunning)
 		{
-			
+			for (Layer* layer : m_LayerStack)//from bottom to top when rendering
+			{
+				layer->OnUpdate();
+			}
 			m_pWindow->OnUpdate();
 		}
 	}

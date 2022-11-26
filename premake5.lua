@@ -64,14 +64,17 @@ project "Milu"
     
     filter "configurations:Debug"
         defines "ML_DEBUG"
+		buildoptions "/MDd"
         symbols "On"
 
     filter "configurations:Release"
         defines "ML_RELEASE"
+		buildoptions "/MD"
         optimize "On"
 
     filter "configurations:Dist"
         defines "ML_DIST"
+		buildoptions "/MD"
         optimize "On"
 
 project "Sandbox"
@@ -112,12 +115,15 @@ project "Sandbox"
     
     filter "configurations:Debug"
         defines "ML_DEBUG"
+		buildoptions "/MDd"
         symbols "On"
 
     filter "configurations:Release"
         defines "ML_RELEASE"
+		buildoptions "/MD"
         optimize "On"
 
     filter "configurations:Dist"
         defines "ML_DIST"
+		buildoptions "/MD"
         optimize "On"

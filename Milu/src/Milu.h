@@ -4,6 +4,7 @@
 
 #include "Milu/Application.h"
 #include "Milu/Log.h"
+#include "Milu/Layer.h"
 
 // ---Entry Point------------------
 #include "Milu/EntryPoint.h"
