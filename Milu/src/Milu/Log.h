@@ -1,7 +1,9 @@
 #pragma once
+
 #include "Core.h"
 #include "spdlog/spdlog.h"
 #include "spdlog/fmt/ostr.h"
+
 namespace Milu
 {
 	class MILU_API Log

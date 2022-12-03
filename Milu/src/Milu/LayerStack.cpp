@@ -5,7 +5,6 @@ namespace Milu
 {
     LayerStack::LayerStack() 
     {
-        m_LayerInsert = m_Layers.begin();
     }
     LayerStack::~LayerStack() 
     {
@@ -15,7 +14,8 @@ namespace Milu
 
     void LayerStack::PushLayer(Layer* _pLayer) 
     {
-        m_LayerInsert = m_Layers.emplace(m_LayerInsert, _pLayer);
+        m_Layers.emplace(m_Layers.begin() + m_LayerInsertIndex, _pLayer);
+        m_LayerInsertIndex++;
     }
     void LayerStack::PushOverlay(Layer* _pOverlay)
     {
@@ -27,12 +27,12 @@ namespace Milu
         if (it != m_Layers.end())
         {
             m_Layers.erase(it);//dangerous!! not delete the pointer
-            m_LayerInsert--;
+            m_LayerInsertIndex--;
         }
     }
     void LayerStack::PopOverlay(Layer* _pOverlay)
     {
-        auto it = std::find(m_LayerInsert, m_Layers.end(), _pOverlay);
+        auto it = std::find(m_Layers.begin() + m_LayerInsertIndex, m_Layers.end(), _pOverlay);
         if (it != m_Layers.end())
         {
             m_Layers.erase(it);//dangerous!! not delete the pointer
